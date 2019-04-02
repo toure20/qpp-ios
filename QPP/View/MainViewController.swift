@@ -24,6 +24,18 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
         configureGallery()
+        self.navigationController?.navigationBar.topItem?.title = " "
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: Any) {
+        let imageController = UIStoryboard.init(name: "Details", bundle: nil).instantiateViewController(withIdentifier: "ImagesViewController") as! ImagesViewController
+        imageController.pickedImages = self.pickedImages
+        self.navigationController?.pushViewController(imageController, animated: true)
     }
     
     func configureGallery() {
