@@ -9,8 +9,7 @@
 import UIKit
 import Gallery
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
+class MainViewController: UIViewController {
     var pickedImages: [UIImage?] = [] {
         didSet {
             collectionView.reloadData()
@@ -33,7 +32,9 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         Config.Camera.recordLocation = false
         Config.VideoEditor.savesEditedVideoToLibrary = false
     }
-    
+}
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pickedImages.count + 1
     }
@@ -78,11 +79,9 @@ extension MainViewController: GalleryControllerDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
-    }
+    func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {}
     
-    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {
-    }
+    func galleryController(_ controller: GalleryController, requestLightbox images: [Image]) {}
     
     func galleryControllerDidCancel(_ controller: GalleryController) {
         self.dismiss(animated: true, completion: nil)

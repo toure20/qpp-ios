@@ -13,6 +13,7 @@
 		2B3192F822524F6700EB5136 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B3192F722524F6700EB5136 /* Assets.xcassets */; };
 		2B3192FB22524F6700EB5136 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3192F922524F6700EB5136 /* LaunchScreen.storyboard */; };
 		2B31930522525F9F00EB5136 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B31930422525F9F00EB5136 /* PhotoCollectionViewCell.swift */; };
+		2B5F629A2253C46600686095 /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5F62992253C46600686095 /* Details.storyboard */; };
 		41024AC91383CA1655C4004F /* Pods_QPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF1339FE449E98449E1E7F0 /* Pods_QPP.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		2B3192FA22524F6700EB5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B3192FC22524F6700EB5136 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B31930422525F9F00EB5136 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		2B5F62992253C46600686095 /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		3530DCBCE8CD32C50BA38824 /* Pods-QPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPP.debug.xcconfig"; path = "Target Support Files/Pods-QPP/Pods-QPP.debug.xcconfig"; sourceTree = "<group>"; };
 		8BF1339FE449E98449E1E7F0 /* Pods_QPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A71DE2BF90C3F8F237A08011 /* Pods-QPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPP.release.xcconfig"; path = "Target Support Files/Pods-QPP/Pods-QPP.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				2B31930222524FE900EB5136 /* View */,
 				2B3192F422524F6600EB5136 /* Main.storyboard */,
 				2B3192FC22524F6700EB5136 /* Info.plist */,
+				2B5F62992253C46600686095 /* Details.storyboard */,
 			);
 			path = QPP;
 			sourceTree = "<group>";
@@ -104,7 +107,6 @@
 				3530DCBCE8CD32C50BA38824 /* Pods-QPP.debug.xcconfig */,
 				A71DE2BF90C3F8F237A08011 /* Pods-QPP.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -171,6 +173,7 @@
 				2B3192FB22524F6700EB5136 /* LaunchScreen.storyboard in Resources */,
 				2B3192F822524F6700EB5136 /* Assets.xcassets in Resources */,
 				2B3192F622524F6600EB5136 /* Main.storyboard in Resources */,
+				2B5F629A2253C46600686095 /* Details.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
