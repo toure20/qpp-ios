@@ -27,15 +27,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sm-41-xlM">
-                                <rect key="frame" x="326" y="32.5" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="Oug-tL-KhW"/>
-                                    <constraint firstAttribute="height" constant="25" id="PQo-Et-bB6"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="profile_icon"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добро пожаловать в сервис для печати фотографий" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CtS-61-WbL">
                                 <rect key="frame" x="16" y="66" width="249" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
@@ -240,7 +231,6 @@
                             <constraint firstItem="4aZ-lG-FJd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.44" id="7JZ-pS-vsD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CtS-61-WbL" secondAttribute="trailing" constant="110" id="AZ8-ts-J1L"/>
                             <constraint firstItem="CtS-61-WbL" firstAttribute="leading" secondItem="Nuh-ve-Nn5" secondAttribute="leading" id="Aas-lu-XRd"/>
-                            <constraint firstItem="1Sm-41-xlM" firstAttribute="centerY" secondItem="Nuh-ve-Nn5" secondAttribute="centerY" id="F4C-vF-3Ec"/>
                             <constraint firstItem="4aZ-lG-FJd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="FcH-rX-T43"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4ib-4L-aTY" secondAttribute="trailing" constant="16" id="FpO-IY-UDu"/>
                             <constraint firstItem="FJa-IN-BVJ" firstAttribute="top" secondItem="CtS-61-WbL" secondAttribute="bottom" constant="8" id="GCs-7i-fe5"/>
@@ -258,7 +248,6 @@
                             <constraint firstItem="4aZ-lG-FJd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ebA-ns-5u6"/>
                             <constraint firstItem="BMg-Wn-Tw6" firstAttribute="top" secondItem="skM-ax-hY2" secondAttribute="bottom" constant="8" id="gmA-Z4-Ff6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BMg-Wn-Tw6" secondAttribute="bottom" constant="8" id="hnW-AI-hFW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Sm-41-xlM" secondAttribute="trailing" constant="24" id="ltw-Mg-VRq"/>
                             <constraint firstItem="Nuh-ve-Nn5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="oaj-GH-bpb"/>
                             <constraint firstItem="5a3-L7-Oak" firstAttribute="top" secondItem="CtS-61-WbL" secondAttribute="bottom" constant="8" id="oxM-29-adF"/>
                             <constraint firstItem="skM-ax-hY2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qUb-hw-qQA"/>
@@ -277,7 +266,7 @@
             </objects>
             <point key="canvasLocation" x="1932" y="27.436281859070466"/>
         </scene>
-        <!--Item-->
+        <!--Корзина-->
         <scene sceneID="yPV-7H-Hcf">
             <objects>
                 <viewController id="Iw4-a1-6kR" sceneMemberID="viewController">
@@ -287,17 +276,33 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="yP5-GT-noh"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="2cS-47-BNU"/>
+                    <tabBarItem key="tabBarItem" title="Корзина" image="tabbar_cart_empty_icon" id="2cS-47-BNU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qO-LD-Aah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="993" y="783"/>
         </scene>
+        <!--Профиль-->
+        <scene sceneID="5RH-Ww-rNh">
+            <objects>
+                <viewController id="GU3-ZN-Pw0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MI3-G8-yd5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bhy-oD-Kuf"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Профиль" image="tabbar_profile_icon" id="ZJ5-Ly-mzS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l9D-GN-nUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="993" y="1468"/>
+        </scene>
         <!--Главная-->
         <scene sceneID="bIH-XY-owy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hsH-EW-uk9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Главная" image="tabbar_home" id="RNb-Vg-xAK"/>
+                    <tabBarItem key="tabBarItem" title="Главная" image="tabbar_home_icon" id="RNb-Vg-xAK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="edF-5f-QM1">
                         <autoresizingMask key="autoresizingMask"/>
@@ -317,12 +322,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QaK-mw-HfB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jun-4o-X6W">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="hsH-EW-uk9" kind="relationship" relationship="viewControllers" id="AYV-0M-bUx"/>
                         <segue destination="Iw4-a1-6kR" kind="relationship" relationship="viewControllers" id="u2C-94-CCV"/>
+                        <segue destination="GU3-ZN-Pw0" kind="relationship" relationship="viewControllers" id="nt4-lM-CCc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9B-s4-dX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -335,9 +342,10 @@
         <image name="image_2" width="2250" height="1500"/>
         <image name="main_body" width="660" height="316"/>
         <image name="main_header_img" width="375" height="307"/>
-        <image name="plus_icon" width="153.60000610351562" height="153.60000610351562"/>
-        <image name="profile_icon" width="384" height="384"/>
+        <image name="plus_icon" width="150.2608642578125" height="150.2608642578125"/>
         <image name="rounded_rect" width="67" height="71"/>
-        <image name="tabbar_home" width="119" height="134"/>
+        <image name="tabbar_cart_empty_icon" width="36" height="36"/>
+        <image name="tabbar_home_icon" width="36" height="36"/>
+        <image name="tabbar_profile_icon" width="36" height="36"/>
     </resources>
 </document>
