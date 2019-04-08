@@ -278,14 +278,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nDQ-Ab-hRQ">
-                                <rect key="frame" x="8" y="72" width="359" height="431.5"/>
+                                <rect key="frame" x="20" y="72" width="335" height="431.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartTableViewCell" rowHeight="105" id="ea3-V7-mjo" customClass="CartTableViewCell" customModule="QPP" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="359" height="105"/>
+                                        <rect key="frame" x="0.0" y="28" width="335" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ea3-V7-mjo" id="xdy-DO-uJc">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="104.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="104.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_1" translatesAutoresizingMaskIntoConstraints="NO" id="Vzv-TU-gjM">
@@ -375,8 +375,8 @@
                             <constraint firstItem="yP5-GT-noh" firstAttribute="trailing" secondItem="NTJ-6W-beN" secondAttribute="trailing" constant="16" id="TuM-d6-v60"/>
                             <constraint firstItem="yP5-GT-noh" firstAttribute="bottom" secondItem="NTJ-6W-beN" secondAttribute="bottom" constant="8" id="cVE-wq-Fck"/>
                             <constraint firstItem="nDQ-Ab-hRQ" firstAttribute="top" secondItem="yP5-GT-noh" secondAttribute="top" constant="8" id="ckw-fO-wI0"/>
-                            <constraint firstItem="yP5-GT-noh" firstAttribute="trailing" secondItem="nDQ-Ab-hRQ" secondAttribute="trailing" constant="8" id="oPL-c9-IWU"/>
-                            <constraint firstItem="nDQ-Ab-hRQ" firstAttribute="leading" secondItem="yP5-GT-noh" secondAttribute="leading" constant="8" id="sRF-hx-g8p"/>
+                            <constraint firstItem="yP5-GT-noh" firstAttribute="trailing" secondItem="nDQ-Ab-hRQ" secondAttribute="trailing" constant="20" id="oPL-c9-IWU"/>
+                            <constraint firstItem="nDQ-Ab-hRQ" firstAttribute="leading" secondItem="yP5-GT-noh" secondAttribute="leading" constant="20" id="sRF-hx-g8p"/>
                             <constraint firstItem="YkH-kP-g5M" firstAttribute="leading" secondItem="Qfr-Jt-hrD" secondAttribute="leading" constant="8" id="w84-fR-XQN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yP5-GT-noh"/>
