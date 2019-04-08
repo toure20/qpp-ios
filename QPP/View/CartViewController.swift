@@ -19,7 +19,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
+        tableView.layer.cornerRadius = 12
+        tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
     

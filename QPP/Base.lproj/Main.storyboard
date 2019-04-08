@@ -281,7 +281,7 @@
                                 <rect key="frame" x="8" y="72" width="359" height="431.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartTableViewCell" rowHeight="105" id="ea3-V7-mjo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartTableViewCell" rowHeight="105" id="ea3-V7-mjo" customClass="CartTableViewCell" customModule="QPP" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="105"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ea3-V7-mjo" id="xdy-DO-uJc">
@@ -333,6 +333,9 @@
                                                 <constraint firstItem="uI3-Q7-nk1" firstAttribute="centerY" secondItem="6ZK-vB-pp2" secondAttribute="centerY" id="qXc-tj-NUS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bgImage" destination="Vzv-TU-gjM" id="FXr-cx-ir5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -363,7 +366,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.91896049222797926" green="0.91896049222797926" blue="0.91896049222797926" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="NTJ-6W-beN" firstAttribute="top" secondItem="YkH-kP-g5M" secondAttribute="bottom" constant="16" id="52E-8r-tgS"/>
                             <constraint firstItem="YkH-kP-g5M" firstAttribute="top" secondItem="nDQ-Ab-hRQ" secondAttribute="bottom" constant="20" id="9vu-Q6-OIV"/>
