@@ -16,6 +16,7 @@ class ImagesViewController: UIViewController {
     @IBOutlet weak var currentNumberLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var pickerContainerView: UIView!
+    @IBOutlet weak var nextButton: UIButton!
     
     fileprivate let collectionItemHeight: CGFloat = 300
     fileprivate var pageSize: CGSize {
@@ -42,11 +43,10 @@ class ImagesViewController: UIViewController {
         self.navigationController?.navigationBar.setupGradientBackground(
             [UIColor.init(hex: "4754A5"), UIColor.init(hex: "2C367A")]
         )
-        
         setupViews()
     }
     
-    func setupViews() {
+    private func setupViews() {
         currentNumberLabel.text = "1/\(pickedImages.count)"
         
         collectionView.backgroundColor = UIColor.clear
@@ -64,6 +64,11 @@ class ImagesViewController: UIViewController {
         pickerContainerView.layer.shadowRadius = 4.0
         pickerContainerView.layer.shadowOpacity = 0.2
         pickerContainerView.layer.shadowOffset = CGSize.zero
+        
+        nextButton.layer.shadowColor = UIColor.blue.cgColor
+        nextButton.layer.shadowRadius = 4.0
+        nextButton.layer.shadowOpacity = 0.3
+        nextButton.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {

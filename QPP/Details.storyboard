@@ -67,7 +67,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUq-nh-M8q">
                                 <rect key="frame" x="16" y="597" width="343" height="50"/>
-                                <color key="backgroundColor" red="0.47843137250000001" green="0.47843137250000001" blue="0.83529411760000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.27843137254901962" green="0.32941176470588235" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7iQ-Va-142"/>
                                 </constraints>
@@ -109,6 +109,7 @@
                     <connections>
                         <outlet property="containerView" destination="Tvb-On-tBt" id="FFu-uX-nOM"/>
                         <outlet property="currentNumberLabel" destination="X4E-JM-GXb" id="FXv-lV-6hw"/>
+                        <outlet property="nextButton" destination="DUq-nh-M8q" id="k50-q3-55d"/>
                         <outlet property="pickerContainerView" destination="sWc-aJ-KMz" id="Uob-h1-wOJ"/>
                     </connections>
                 </viewController>
