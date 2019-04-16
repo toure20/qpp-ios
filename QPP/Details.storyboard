@@ -72,7 +72,7 @@
                                     <constraint firstAttribute="height" constant="50" id="7iQ-Va-142"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <state key="normal" title="Далее">
+                                <state key="normal" title="Добавить все в корзину">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
