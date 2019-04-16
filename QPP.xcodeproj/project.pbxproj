@@ -18,6 +18,10 @@
 		2B5F629E2253CA6200686095 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F629D2253CA6200686095 /* ImageCollectionViewCell.swift */; };
 		2B5F62A12253CBD900686095 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5F62A02253CBD900686095 /* UPCarouselFlowLayout.swift */; };
 		41024AC91383CA1655C4004F /* Pods_QPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF1339FE449E98449E1E7F0 /* Pods_QPP.framework */; };
+		4A4E2A2C225BAF8200A0DEF3 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A2B225BAF8200A0DEF3 /* CartViewController.swift */; };
+		4A4E2A30225BBC1500A0DEF3 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A2F225BBC1500A0DEF3 /* CartTableViewCell.swift */; };
+		4A4E2A32225F8D8400A0DEF3 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A31225F8D8400A0DEF3 /* ProfileTableViewController.swift */; };
+		4A4E2A34225F9DB500A0DEF3 /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A33225F9DB500A0DEF3 /* MyOrdersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		2B5F629D2253CA6200686095 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2B5F62A02253CBD900686095 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		3530DCBCE8CD32C50BA38824 /* Pods-QPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPP.debug.xcconfig"; path = "Target Support Files/Pods-QPP/Pods-QPP.debug.xcconfig"; sourceTree = "<group>"; };
+		4A4E2A2B225BAF8200A0DEF3 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		4A4E2A2F225BBC1500A0DEF3 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		4A4E2A31225F8D8400A0DEF3 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		4A4E2A33225F9DB500A0DEF3 /* MyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
 		8BF1339FE449E98449E1E7F0 /* Pods_QPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A71DE2BF90C3F8F237A08011 /* Pods-QPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPP.release.xcconfig"; path = "Target Support Files/Pods-QPP/Pods-QPP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +81,7 @@
 			children = (
 				2B5F629F2253CBC400686095 /* Vendor */,
 				2B31930322524FF300EB5136 /* Supporting */,
+				4A4E2A36225FA26400A0DEF3 /* Controllers */,
 				2B31930222524FE900EB5136 /* View */,
 				2B3192F422524F6600EB5136 /* Main.storyboard */,
 				2B3192FC22524F6700EB5136 /* Info.plist */,
@@ -84,10 +93,7 @@
 		2B31930222524FE900EB5136 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2B3192F222524F6600EB5136 /* MainViewController.swift */,
-				2B31930422525F9F00EB5136 /* PhotoCollectionViewCell.swift */,
-				2B5F629B2253C6FB00686095 /* ImagesViewController.swift */,
-				2B5F629D2253CA6200686095 /* ImageCollectionViewCell.swift */,
+				4A4E2A35225FA25200A0DEF3 /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,6 +114,28 @@
 				2B5F62A02253CBD900686095 /* UPCarouselFlowLayout.swift */,
 			);
 			path = Vendor;
+			sourceTree = "<group>";
+		};
+		4A4E2A35225FA25200A0DEF3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2B31930422525F9F00EB5136 /* PhotoCollectionViewCell.swift */,
+				2B5F629D2253CA6200686095 /* ImageCollectionViewCell.swift */,
+				4A4E2A2F225BBC1500A0DEF3 /* CartTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		4A4E2A36225FA26400A0DEF3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2B3192F222524F6600EB5136 /* MainViewController.swift */,
+				2B5F629B2253C6FB00686095 /* ImagesViewController.swift */,
+				4A4E2A2B225BAF8200A0DEF3 /* CartViewController.swift */,
+				4A4E2A31225F8D8400A0DEF3 /* ProfileTableViewController.swift */,
+				4A4E2A33225F9DB500A0DEF3 /* MyOrdersViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		ACC8E9E449D1E69456FE9CD9 /* Frameworks */ = {
@@ -253,9 +281,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B3192F322524F6600EB5136 /* MainViewController.swift in Sources */,
+				4A4E2A34225F9DB500A0DEF3 /* MyOrdersViewController.swift in Sources */,
 				2B5F629E2253CA6200686095 /* ImageCollectionViewCell.swift in Sources */,
+				4A4E2A2C225BAF8200A0DEF3 /* CartViewController.swift in Sources */,
+				4A4E2A30225BBC1500A0DEF3 /* CartTableViewCell.swift in Sources */,
 				2B3192F122524F6600EB5136 /* AppDelegate.swift in Sources */,
 				2B5F629C2253C6FB00686095 /* ImagesViewController.swift in Sources */,
+				4A4E2A32225F8D8400A0DEF3 /* ProfileTableViewController.swift in Sources */,
 				2B31930522525F9F00EB5136 /* PhotoCollectionViewCell.swift in Sources */,
 				2B5F62A12253CBD900686095 /* UPCarouselFlowLayout.swift in Sources */,
 			);
@@ -404,8 +436,9 @@
 			baseConfigurationReference = 3530DCBCE8CD32C50BA38824 /* Pods-QPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7Z5NU248VC;
+				DEVELOPMENT_TEAM = QTM4UB2TXN;
 				INFOPLIST_FILE = QPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -413,6 +446,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.QPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -423,8 +457,9 @@
 			baseConfigurationReference = A71DE2BF90C3F8F237A08011 /* Pods-QPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7Z5NU248VC;
+				DEVELOPMENT_TEAM = QTM4UB2TXN;
 				INFOPLIST_FILE = QPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -432,6 +467,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.QPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
