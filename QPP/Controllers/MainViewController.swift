@@ -10,13 +10,19 @@ import UIKit
 import Gallery
 
 class MainViewController: UIViewController {
+    
+    /// Collection of images which picked from gallery
     var pickedImages: [UIImage?] = [] {
         didSet {
+            let title = pickedImages.isEmpty ? "Выбрать фотографии" : "Далее"
+            nextButton.setTitle(title, for: .normal)
             collectionView.reloadData()
         }
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var imageCollectionContrainerView: UIView!
+    @IBOutlet weak var nextButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +30,8 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10)
         configureGallery()
-        self.navigationController?.navigationBar.topItem?.title = " "
+        self.navigationController?.navigationBar.topItem?.title = ""
+        nextButton.setTitle("Выбрать фотографии", for: .normal)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,9 +40,20 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
-        let imageController = UIStoryboard.init(name: "Details", bundle: nil).instantiateViewController(withIdentifier: "ImagesViewController") as! ImagesViewController
-        imageController.pickedImages = self.pickedImages
-        self.navigationController?.pushViewController(imageController, animated: true)
+        
+        if pickedImages.isEmpty {
+        /// Open images picker
+            let gallery = GalleryController()
+            gallery.delegate = self
+            self.present(gallery, animated: true, completion: nil)
+        } else {
+        /// Push to next screen
+            let imageController = UIStoryboard.byName("Details")
+                .instantiateViewController(withIdentifier: "ImagesViewController") as! ImagesViewController
+            imageController.pickedImages = self.pickedImages
+            self.navigationController?.pushViewController(imageController, animated: true)
+        }
+        
     }
     
     func configureGallery() {
@@ -43,6 +61,17 @@ class MainViewController: UIViewController {
         Config.initialTab = Config.GalleryTab.imageTab
         Config.Camera.recordLocation = false
         Config.VideoEditor.savesEditedVideoToLibrary = false
+        Config.tabsToShow = [.imageTab, .cameraTab]
+        
+        imageCollectionContrainerView.layer.shadowColor = UIColor.gray.cgColor
+        imageCollectionContrainerView.layer.shadowRadius = 4.0
+        imageCollectionContrainerView.layer.shadowOpacity = 0.2
+        imageCollectionContrainerView.layer.shadowOffset = CGSize.zero
+        
+        nextButton.layer.shadowColor = UIColor.blue.cgColor
+        nextButton.layer.shadowRadius = 4.0
+        nextButton.layer.shadowOpacity = 0.3
+        nextButton.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
 }
 

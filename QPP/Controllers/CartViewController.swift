@@ -19,7 +19,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         tableView.layer.cornerRadius = 12
         tableView.tableFooterView = UIView()
-        // Do any additional setup after loading the view.
+        
+        self.navigationController?.navigationBar.setupGradientBackground(
+            [UIColor.init(hex: "4754A5"), UIColor.init(hex: "2C367A")]
+        )
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

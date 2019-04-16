@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0F1253226604B2008407AC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F1252226604B2008407AC /* UIColor+Extension.swift */; };
+		2B0F1255226604F8008407AC /* NavBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F1254226604F8008407AC /* NavBar+Extension.swift */; };
+		2B0F125722660562008407AC /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F125622660562008407AC /* UIStoryboard+Extension.swift */; };
+		2B0F125922660619008407AC /* CAGradientLayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0F125822660619008407AC /* CAGradientLayer+Extension.swift */; };
 		2B3192F122524F6600EB5136 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3192F022524F6600EB5136 /* AppDelegate.swift */; };
 		2B3192F322524F6600EB5136 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B3192F222524F6600EB5136 /* MainViewController.swift */; };
 		2B3192F622524F6600EB5136 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B3192F422524F6600EB5136 /* Main.storyboard */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B0F1252226604B2008407AC /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		2B0F1254226604F8008407AC /* NavBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavBar+Extension.swift"; sourceTree = "<group>"; };
+		2B0F125622660562008407AC /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		2B0F125822660619008407AC /* CAGradientLayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Extension.swift"; sourceTree = "<group>"; };
 		2B3192ED22524F6600EB5136 /* QPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3192F022524F6600EB5136 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B3192F222524F6600EB5136 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +66,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B0F1251226604A2008407AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B0F1252226604B2008407AC /* UIColor+Extension.swift */,
+				2B0F1254226604F8008407AC /* NavBar+Extension.swift */,
+				2B0F125622660562008407AC /* UIStoryboard+Extension.swift */,
+				2B0F125822660619008407AC /* CAGradientLayer+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2B3192E422524F6600EB5136 = {
 			isa = PBXGroup;
 			children = (
@@ -79,13 +98,14 @@
 		2B3192EF22524F6600EB5136 /* QPP */ = {
 			isa = PBXGroup;
 			children = (
+				2B0F1251226604A2008407AC /* Extensions */,
 				2B5F629F2253CBC400686095 /* Vendor */,
 				2B31930322524FF300EB5136 /* Supporting */,
 				4A4E2A36225FA26400A0DEF3 /* Controllers */,
 				2B31930222524FE900EB5136 /* View */,
 				2B3192F422524F6600EB5136 /* Main.storyboard */,
-				2B3192FC22524F6700EB5136 /* Info.plist */,
 				2B5F62992253C46600686095 /* Details.storyboard */,
+				2B3192FC22524F6700EB5136 /* Info.plist */,
 			);
 			path = QPP;
 			sourceTree = "<group>";
@@ -283,13 +303,17 @@
 				2B3192F322524F6600EB5136 /* MainViewController.swift in Sources */,
 				4A4E2A34225F9DB500A0DEF3 /* MyOrdersViewController.swift in Sources */,
 				2B5F629E2253CA6200686095 /* ImageCollectionViewCell.swift in Sources */,
+				2B0F1253226604B2008407AC /* UIColor+Extension.swift in Sources */,
 				4A4E2A2C225BAF8200A0DEF3 /* CartViewController.swift in Sources */,
+				2B0F125722660562008407AC /* UIStoryboard+Extension.swift in Sources */,
 				4A4E2A30225BBC1500A0DEF3 /* CartTableViewCell.swift in Sources */,
 				2B3192F122524F6600EB5136 /* AppDelegate.swift in Sources */,
 				2B5F629C2253C6FB00686095 /* ImagesViewController.swift in Sources */,
+				2B0F125922660619008407AC /* CAGradientLayer+Extension.swift in Sources */,
 				4A4E2A32225F8D8400A0DEF3 /* ProfileTableViewController.swift in Sources */,
 				2B31930522525F9F00EB5136 /* PhotoCollectionViewCell.swift in Sources */,
 				2B5F62A12253CBD900686095 /* UPCarouselFlowLayout.swift in Sources */,
+				2B0F1255226604F8008407AC /* NavBar+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

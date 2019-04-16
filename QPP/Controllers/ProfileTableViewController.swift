@@ -13,7 +13,9 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
-        
+        self.navigationController?.navigationBar.setupGradientBackground(
+            [UIColor.init(hex: "4754A5"), UIColor.init(hex: "2C367A")]
+        )
     }
 
     // MARK: - Table view data source
