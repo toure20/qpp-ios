@@ -10,6 +10,7 @@ import UIKit
 
 class OrderViewController: UIViewController {
 
+    @IBOutlet weak var nextButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
