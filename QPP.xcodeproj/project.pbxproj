@@ -26,6 +26,7 @@
 		4A4E2A30225BBC1500A0DEF3 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A2F225BBC1500A0DEF3 /* CartTableViewCell.swift */; };
 		4A4E2A32225F8D8400A0DEF3 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A31225F8D8400A0DEF3 /* ProfileTableViewController.swift */; };
 		4A4E2A34225F9DB500A0DEF3 /* MyOrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A33225F9DB500A0DEF3 /* MyOrdersViewController.swift */; };
+		4AE9EC40226F880C0020B21F /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE9EC3F226F880C0020B21F /* OrderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		4A4E2A2F225BBC1500A0DEF3 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		4A4E2A31225F8D8400A0DEF3 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		4A4E2A33225F9DB500A0DEF3 /* MyOrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersViewController.swift; sourceTree = "<group>"; };
+		4AE9EC3F226F880C0020B21F /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		8BF1339FE449E98449E1E7F0 /* Pods_QPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A71DE2BF90C3F8F237A08011 /* Pods-QPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPP.release.xcconfig"; path = "Target Support Files/Pods-QPP/Pods-QPP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 				4A4E2A2B225BAF8200A0DEF3 /* CartViewController.swift */,
 				4A4E2A31225F8D8400A0DEF3 /* ProfileTableViewController.swift */,
 				4A4E2A33225F9DB500A0DEF3 /* MyOrdersViewController.swift */,
+				4AE9EC3F226F880C0020B21F /* OrderViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				2B0F125922660619008407AC /* CAGradientLayer+Extension.swift in Sources */,
 				4A4E2A32225F8D8400A0DEF3 /* ProfileTableViewController.swift in Sources */,
 				2B31930522525F9F00EB5136 /* PhotoCollectionViewCell.swift in Sources */,
+				4AE9EC40226F880C0020B21F /* OrderViewController.swift in Sources */,
 				2B5F62A12253CBD900686095 /* UPCarouselFlowLayout.swift in Sources */,
 				2B0F1255226604F8008407AC /* NavBar+Extension.swift in Sources */,
 			);
