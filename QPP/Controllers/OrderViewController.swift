@@ -10,31 +10,35 @@ import UIKit
 
 class OrderViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var addressTextField: UITextField!
+    @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var confirmOrderButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
-
-        // Do any additional setup after loading the view.
+        nameTextField.setBottomBorder()
+        addressTextField.setBottomBorder()
+        phoneTextField.setBottomBorder()
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension UITextField {
+    func setBottomBorder() {
+        self.borderStyle = .none
+        self.layer.backgroundColor = UIColor.white.cgColor
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+        self.layer.shadowOpacity = 0.7
+        self.layer.shadowRadius = 0.0
     }
-    */
-
 }
 
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
