@@ -39,6 +39,9 @@ class ProfileTableViewController: UITableViewController {
             // Reset state
             isLogged = false
             authCellLabel.text = "Войти/Регистрация"
+            [addressLabel, phoneNumberLabel, cityLabel].forEach { (label) in
+                label?.text = nil
+            }
         }
     }
     
