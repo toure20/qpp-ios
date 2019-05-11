@@ -9,5 +9,7 @@ target 'QPP' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'SVProgressHUD'
   pod 'Gallery'
-
+  pod 'Moya'
+  pod 'SwiftyJSON'
+  
 end

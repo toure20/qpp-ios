@@ -13,6 +13,7 @@ class MyOrdersViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Мои заказы"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.layer.cornerRadius = 12

@@ -9,6 +9,9 @@
 import UIKit
 import SnapKit
 
+var serloc: ServiceLocator!
+var cache = NSCache<NSString, User>()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,10 +20,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        addServices()
+        configureApperance()
+        return true
+    }
+    
+    func configureApperance() {
         UITabBar.appearance().tintColor = UIColor(red: 122/255.0, green: 122/255.0, blue: 213/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        return true
+    }
+    
+    func addServices() {
+        let registry = LazyServiceLocator()
+        serloc = registry
+        registry.addService { CartRepository() as CartRepositoryProtocol }
+        registry.addService { UserRepository() as UserRepositoryProtocol }
+    }
+    
+    func gotoLogin() {
+        let vc = LoginController.instantiate()
+        self.window?.rootViewController = UINavigationController(rootViewController: vc)
+    }
+    
+    func gotoTabbar() {
+//        let vc = TabBarController.instantiate()
+//        self.window?.rootViewController = vc
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

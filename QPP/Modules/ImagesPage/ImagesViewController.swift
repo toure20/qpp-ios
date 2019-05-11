@@ -7,16 +7,33 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ImagesViewController: UIViewController {
     
-    var pickedImages: [UIImage?] = []
+    var cartRepository = serloc.getService(CartRepositoryProtocol.self)
+    
+    var pickedImages: [UIImage?] = [] {
+        didSet {
+            for (index, img) in self.pickedImages.enumerated() {
+                selectedSource[index] = PhotoCart(image: img)
+            }
+        }
+    }
+    private var selectedItemIndex: Int = 0
+    private var selectedSource: [Int: PhotoCart] = [:]
+    
+    // Constants
+    var photosSizes: [PhotoSize] = [.nine, .ten, .thirteen, .fifteen, .twenty, .twentyOne, .thirty]
+    var quatities: [Int] = (1...20).map { Int($0) }
     
     var collectionView: UICollectionView
     @IBOutlet weak var currentNumberLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var pickerContainerView: UIView!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var sizeButton: UIButton!
+    @IBOutlet weak var quantityButton: UIButton!
     
     fileprivate let collectionItemHeight: CGFloat = 300
     fileprivate var pageSize: CGSize {
@@ -71,7 +88,58 @@ class ImagesViewController: UIViewController {
         nextButton.layer.shadowOffset = CGSize(width: 0, height: 3)
     }
     
+    @IBAction func chooseSizeButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(style: .actionSheet, title: "Выберите размер", message: "")
+        let pickerViewValues: [[String]] = [photosSizes.compactMap{ $0.rawValue }]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 1)
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) { vc, picker, index, values in
+            print(index)
+            let quantity = self.selectedSource[self.selectedItemIndex]?.quantity ?? 1
+            let size = self.photosSizes[index.row]
+            let image = self.pickedImages[self.selectedItemIndex]
+            if let exisitingItem = self.selectedSource[self.selectedItemIndex] {
+                exisitingItem.quantity = quantity
+                exisitingItem.size = size
+                exisitingItem.image = image
+            } else {
+                self.selectedSource[self.selectedItemIndex] = PhotoCart(quantity: quantity, size: size, image: image)
+            }
+            
+            self.sizeButton.setTitle(size.rawValue, for: .normal)
+        }
+        alert.addAction(title: "Выбрать", style: .cancel)
+        alert.show()
+    }
+    
+    @IBAction func chooseQuantityButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(style: .actionSheet, title: "Укажите количество", message: "")
+        let pickerViewValues: [[String]] = [quatities.map { Int($0).description }]
+        let pickerViewSelectedValue: PickerViewViewController.Index = (column: 0, row: 1)
+        alert.addPickerView(values: pickerViewValues, initialSelection: pickerViewSelectedValue) { vc, picker, index, values in
+            print(index)
+            let quantity = self.quatities[index.row]
+            let size = self.selectedSource[self.selectedItemIndex]?.size ?? PhotoSize.standart
+            let image = self.pickedImages[self.selectedItemIndex]
+            self.selectedSource[self.selectedItemIndex] = PhotoCart(quantity: quantity, size: size, image: image)
+            self.quantityButton.setTitle("\(quantity)", for: .normal)
+        }
+        alert.addAction(title: "Done", style: .cancel)
+        alert.show()
+    }
+    
+    /// MARK: - Add to cart button action
     @IBAction func nextButtonPressed(_ sender: Any) {
+        if selectedSource.isEmpty {
+            SVProgressHUD.showError(withStatus: "Выберите размеры и количество")
+            return
+        }
+        SVProgressHUD.showSuccess(withStatus: "Добавлено в корзину")
+        cartRepository.set(cartItems: selectedSource)
+        
+        /// Adding badge to cart tabbar item
+        if let tabItems = tabBarController?.tabBar.items {
+            tabItems[1].badgeValue = ""
+        }
     }
 
 }
@@ -99,6 +167,16 @@ extension ImagesViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let pageSide = self.pageSize.width
         let offset = scrollView.contentOffset.x
         let currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
+        selectedItemIndex = currentPage
         currentNumberLabel.text = "\(currentPage + 1)/\(pickedImages.count)"
+        
+        // Size and Quantity button titles
+        if let selectedItem = selectedSource[selectedItemIndex] {
+            quantityButton.setTitle("\(selectedItem.quantity)", for: .normal)
+            sizeButton.setTitle(selectedItem.size.rawValue, for: .normal)
+        } else {
+            quantityButton.setTitle("Выбрать", for: .normal)
+            sizeButton.setTitle("Выбрать", for: .normal)
+        }
     }
 }

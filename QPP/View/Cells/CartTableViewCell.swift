@@ -10,6 +10,8 @@ import UIKit
 
 class CartTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var bgImage: UIImageView!
     
     override func awakeFromNib() {
@@ -20,8 +22,6 @@ class CartTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

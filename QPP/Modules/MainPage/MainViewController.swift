@@ -39,6 +39,18 @@ class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    @IBAction func aboutSizesAction(_ sender: UITapGestureRecognizer) {
+        let vc = DetailArticleViewController.instantiate("Details", DetailArticleViewController.self)
+        vc.data = (image: UIImage(named: "image_1"), title: "Все о размерах", text: "some text here")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func aboutPartnersAction(_ sender: UITapGestureRecognizer) {
+        let vc = DetailArticleViewController.instantiate("Details", DetailArticleViewController.self)
+        vc.data = (image: UIImage(named: "image_1"), title: "Наши партнеры", text: "some text here")
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func nextButtonPressed(_ sender: Any) {
         
         if pickedImages.isEmpty {
