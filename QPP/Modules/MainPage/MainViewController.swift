@@ -8,6 +8,7 @@
 
 import UIKit
 import Gallery
+import SVProgressHUD
 
 class MainViewController: UIViewController {
     
@@ -32,6 +33,17 @@ class MainViewController: UIViewController {
         configureGallery()
         self.navigationController?.navigationBar.topItem?.title = ""
         nextButton.setTitle("Выбрать фотографии", for: .normal)
+        loadUserInfo()
+    }
+    
+    private func loadUserInfo() {
+        SVProgressHUD.show(withStatus: "Подгружаем необходимые данные...")
+        guard let token = UserDefaults.standard.string(forKey: "USER_TOKEN") else { return }
+        APIManager.makeRequest(target: .profileInfo(token: token), success: { (json) in
+            let user = User(json: json["data"]["user"])
+            SVProgressHUD.dismiss()
+            cache.setObject(user, forKey: "CachedProfileObject")
+        }) { _ in }
     }
     
     override func viewWillAppear(_ animated: Bool) {

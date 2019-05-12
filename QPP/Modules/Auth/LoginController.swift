@@ -49,6 +49,7 @@ class LoginController: UIViewController {
             SVProgressHUD.dismiss()
             let user = User(json: json["data"]["user"])
             self.cacheUser(user)
+            UserDefaults.standard.set(user.token, forKey: "USER_TOKEN")
             self.dismiss(animated: true, completion: nil)
         }) { (json) in
             if let baseError = json["error"].string {

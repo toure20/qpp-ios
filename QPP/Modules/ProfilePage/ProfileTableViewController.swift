@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ProfileTableViewController: UITableViewController {
     
@@ -22,11 +23,6 @@ class ProfileTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        if !isLogged {
-            let vc = LoginController.instantiate()
-            self.present(vc, animated: true, completion: nil)
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +62,13 @@ class ProfileTableViewController: UITableViewController {
         print(indexPath)
         switch indexPath.row {
         case 1:
-            self.performSegue(withIdentifier: "MyOrdersVC", sender: nil)
+            if let cachedObject: User = cache.object(forKey: "CachedProfileObject") {
+                let vc = MyOrdersViewController.instantiate()
+                vc.orders = cachedObject.userOrders
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                SVProgressHUD.showError(withStatus: "Авторизируйтесь, чтобы посмотреть список заказов")
+            }
         case 4:
             if isLogged {
                 // Logout case

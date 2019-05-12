@@ -148,6 +148,7 @@
 		2BD66BC82276CC12002DE3EC /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD66BC72276CC12002DE3EC /* ServiceLocator.swift */; };
 		2BD66BCA2276CF00002DE3EC /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD66BC92276CF00002DE3EC /* Collection+Extension.swift */; };
 		2BD66BCC2276DA18002DE3EC /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BD66BCB2276DA18002DE3EC /* Auth.storyboard */; };
+		2BD75F9A22889AD100FF2C76 /* MyOrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD75F9922889AD100FF2C76 /* MyOrdersTableViewCell.swift */; };
 		41024AC91383CA1655C4004F /* Pods_QPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF1339FE449E98449E1E7F0 /* Pods_QPP.framework */; };
 		4A4E2A2C225BAF8200A0DEF3 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A2B225BAF8200A0DEF3 /* CartViewController.swift */; };
 		4A4E2A30225BBC1500A0DEF3 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E2A2F225BBC1500A0DEF3 /* CartTableViewCell.swift */; };
@@ -300,6 +301,7 @@
 		2BD66BC72276CC12002DE3EC /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		2BD66BC92276CF00002DE3EC /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
 		2BD66BCB2276DA18002DE3EC /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		2BD75F9922889AD100FF2C76 /* MyOrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersTableViewCell.swift; sourceTree = "<group>"; };
 		3530DCBCE8CD32C50BA38824 /* Pods-QPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QPP.debug.xcconfig"; path = "Target Support Files/Pods-QPP/Pods-QPP.debug.xcconfig"; sourceTree = "<group>"; };
 		4A4E2A2B225BAF8200A0DEF3 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		4A4E2A2F225BBC1500A0DEF3 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
@@ -865,6 +867,7 @@
 				2B31930422525F9F00EB5136 /* PhotoCollectionViewCell.swift */,
 				2B5F629D2253CA6200686095 /* ImageCollectionViewCell.swift */,
 				4A4E2A2F225BBC1500A0DEF3 /* CartTableViewCell.swift */,
+				2BD75F9922889AD100FF2C76 /* MyOrdersTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1169,6 +1172,7 @@
 				2BC62E1122735CB500519C35 /* UITextField+Extensions.swift in Sources */,
 				2B87C8F8228735620066B353 /* User.swift in Sources */,
 				2BC62E3E22735CB500519C35 /* AttributedTextBlock.swift in Sources */,
+				2BD75F9A22889AD100FF2C76 /* MyOrdersTableViewCell.swift in Sources */,
 				2BC62E0A22735CB500519C35 /* CLPlacemark+Extensions.swift in Sources */,
 				2BC62E3922735CB500519C35 /* SegmentedControl.swift in Sources */,
 				2B0F1255226604F8008407AC /* NavBar+Extension.swift in Sources */,

@@ -14,16 +14,13 @@ struct UserOrder {
     var id: Int
     var status: String
     var date: String
-    var photos: [OrderPhotos] = []
+    var photos: OrderPhotos
     
     init(json: JSON) {
         self.id = json["id"].intValue
         self.status = json["status"].stringValue
         self.date = json["date"].stringValue
-        json["photos"].forEach { (_, subJson) in
-            self.photos.append(OrderPhotos(json: subJson))
-        }
-        
+        self.photos = OrderPhotos(json: json["photos"])
     }
 }
 

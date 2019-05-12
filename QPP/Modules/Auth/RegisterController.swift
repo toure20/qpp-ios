@@ -45,6 +45,7 @@ class RegisterController: UIViewController {
             guard let self = self else { return }
             let user = User(json: json["data"]["user"])
             cache.setObject(user, forKey: "CachedProfileObject")
+            UserDefaults.standard.set(user.token, forKey: "USER_TOKEN")
             SVProgressHUD.dismiss()
             self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
         }) { (json) in

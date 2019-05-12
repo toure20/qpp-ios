@@ -23,7 +23,7 @@ public enum APITarget {
     case signUp(name: String, email: String, password: String)
     case signIn(email: String, password: String)
     case resetPassword(email: String)
-    
+    case profileInfo(token: String)
     case getSizes
     case getPriceList
 }
@@ -51,11 +51,13 @@ extension APITarget: TargetType {
             return "data/sizes"
         case .getPriceList:
             return "data/amounts"
+        case .profileInfo:
+            return "data/profile"
         }
     }
     public var method: Moya.Method {
         switch self {
-        case .signUp, .signIn, .resetPassword, .createOrder:
+        case .signUp, .signIn, .resetPassword, .createOrder, .profileInfo:
             return .post
         default:
             return .get
@@ -94,6 +96,11 @@ extension APITarget: TargetType {
         case .signUp(let name, let email, let password):
              return .requestCompositeParameters(
                 bodyParameters: ["name": name, "email": email, "password": password],
+                bodyEncoding: URLEncoding.httpBody, urlParameters: [:]
+            )
+        case .profileInfo(let token):
+            return .requestCompositeParameters(
+                bodyParameters: ["token": token],
                 bodyEncoding: URLEncoding.httpBody, urlParameters: [:]
             )
         default:
