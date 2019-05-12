@@ -13,6 +13,7 @@ struct Photo {
 }
 
 public struct OrderNetworkContext {
+    var token: String
     var email: String
     var name: String
     var phone: String
@@ -34,6 +35,7 @@ public struct OrderNetworkContext {
     
     func getParameters() -> [String: String] {
         var params: [String: String] = [
+            "token": token,
             "email": email,
             "name": name,
             "phone": phone,

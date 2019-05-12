@@ -10,6 +10,7 @@ import Foundation
 import SVProgressHUD
 
 protocol CartRepositoryProtocol {
+    weak var output: CartRepositoryOutput? { get set}
     var isValid: Bool { get }
     func setUserName(_ string: String?)
     func setShippingAddress(_ string: String?)
@@ -17,12 +18,16 @@ protocol CartRepositoryProtocol {
     func set(cartItems: [Int: PhotoCart])
     func getItems() -> [Int: PhotoCart]
     func addItems(_ cartItem: PhotoCart, at index: Int)
-    
     func makeOrder(user: User, shipping_method: ShippingOption, payment_method: PaymentOption)
+}
+
+protocol CartRepositoryOutput: class {
+    func orderDidCreate()
 }
 
 class CartRepository: CartRepositoryProtocol {
     
+    weak var output: CartRepositoryOutput?
     private var shippingOption: ShippingOption?
     
     private var userName: String?
@@ -76,6 +81,7 @@ class CartRepository: CartRepositoryProtocol {
             return
         }
         let networkContext = OrderNetworkContext(
+            token: user.token,
             email: user.email,
             name: name,
             phone: phone,
@@ -86,8 +92,9 @@ class CartRepository: CartRepositoryProtocol {
             price: totalAmount ?? "0.0",
             photos: cartItems
         )
-        APIManager.makeRequest(target: .createOrder(context: networkContext), success: { (json) in
+        APIManager.makeRequest(target: .createOrder(context: networkContext), success: { [weak self] (json) in
             print(json)
+            self?.output?.orderDidCreate()
             SVProgressHUD.showSuccess(withStatus: "Заказ успешно создан")
         }) { json in
             print(json)

@@ -9,7 +9,7 @@
 import UIKit
 import SVProgressHUD
 
-class PaymentOptionsController: UITableViewController {
+class PaymentOptionsController: UITableViewController, CartRepositoryOutput {
     
     var cartRepository: CartRepositoryProtocol = serloc.getService(CartRepositoryProtocol.self)
     
@@ -49,6 +49,7 @@ class PaymentOptionsController: UITableViewController {
         setEmptyBackTitle()
         self.title = "Оплата"
         configureUI()
+        cartRepository.output = self
     }
     
     func configureUI() {
@@ -72,6 +73,10 @@ class PaymentOptionsController: UITableViewController {
             let vc = LoginController.instantiate()
             self.present(vc, animated: true, completion: nil)
         }
+    }
+    
+    func orderDidCreate() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 // MARK: - TableView delegate/data source
