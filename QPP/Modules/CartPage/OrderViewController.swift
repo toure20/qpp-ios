@@ -64,6 +64,7 @@ class OrderViewController: UIViewController {
     }
     
     @objc private func textFieldEditing(_ sender: UITextField) {
+        
         switch sender {
         case nameTextField:
             cartRepository.setUserName(sender.text)
@@ -76,6 +77,16 @@ class OrderViewController: UIViewController {
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
+        var cachedObject: User? = cache.object(forKey: "CachedProfileObject")
+        if cachedObject?.name.isEmpty ?? false {
+            cachedObject?.name = cartRepository.userName ?? ""
+        }
+        if cachedObject?.address.isEmpty ?? false {
+            cachedObject?.address = cartRepository.shipingAddres ?? ""
+        }
+        if cachedObject?.phone.isEmpty ?? false {
+            cachedObject?.phone = cartRepository.phoneNumber ?? ""
+        }
         if cartRepository.isValid {
             let vc = PaymentOptionsController.instantiate()
             self.navigationController?.pushViewController(vc, animated: true)

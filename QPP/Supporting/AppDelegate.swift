@@ -8,9 +8,11 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 var serloc: ServiceLocator!
 var cache = NSCache<NSString, User>()
+var cacheContainer = NSCache<NSString, SizeAmountContainer>()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,13 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         addServices()
         configureApperance()
+        registerPushNotifications()
         return true
     }
     
     func configureApperance() {
-        UITabBar.appearance().tintColor = UIColor(red: 122/255.0, green: 122/255.0, blue: 213/255.0, alpha: 1.0)
+        UITabBar.appearance().tintColor = UIColor(hex: "34343D")
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.font: UIFont.init(name: "Stolzl-Regular", size: 17) ?? UIFont.systemFont(ofSize: 17, weight: .medium)
+        ]
+        
+        SVProgressHUD.setCornerRadius(12.0)
+        SVProgressHUD.setBackgroundColor(UIColor.black.withAlphaComponent(0.8))
+        SVProgressHUD.setFont(UIFont.systemFont(ofSize: 16.0))
+        SVProgressHUD.setForegroundColor(UIColor.white)
+        SVProgressHUD.setMinimumDismissTimeInterval(2.0)
+        SVProgressHUD.setMaximumDismissTimeInterval(2.0)
+        UINavigationBar.appearance().barTintColor = UIColor.black
+//        UINavigationBar.appearance().backgroundColor = Constants.Color.deepBlue
+        // required to disable blur effect & allow barTintColor to work
+//        UINavigationBar.appearance().isTranslucent = false
     }
     
     func addServices() {
@@ -69,7 +86,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func registerPushNotifications() {
+        DispatchQueue.main.async {
+            if #available(iOS 10.0, *) {
+                let center = UNUserNotificationCenter.current()
+                center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                // actions based on whether notifications were authorized or not
+                }
+                UIApplication.shared.registerForRemoteNotifications()
+            } else {
+                let settings = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
+                UIApplication.shared.registerUserNotificationSettings(settings)
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+            
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenString = deviceToken.reduce("", {$0 + String(format: "%02x", $1)})
+        print(tokenString)
+    }
 
-
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error.localizedDescription)
+    }
 }
 

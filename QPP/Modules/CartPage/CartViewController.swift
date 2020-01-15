@@ -26,6 +26,8 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tabBarItem.badgeValue = nil
         subscribeToCartItems()
         setupViews()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeItems), name: NSNotification.Name("cartUpdate"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -34,9 +36,13 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         subscribeToCartItems()
     }
     
+    @objc private func removeItems() {
+        tableView.reloadData()
+    }
+    
     private func subscribeToCartItems() {
         self.cartItems = cartRepository.getItems()
-        totalLabel.text = "Всего фотографий: \(self.cartItems.count)"
+        totalLabel.text = "К оплате: \(cartRepository.calculateTotalAmount())"
         noDataLabel.isHidden = !self.cartItems.isEmpty
         tableView.reloadData()
     }
@@ -47,12 +53,21 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.layer.cornerRadius = 12
         tableView.tableFooterView = UIView()
         
-        nextButton.layer.shadowColor = UIColor.blue.cgColor
+        nextButton.layer.shadowColor = UIColor.lightGray.cgColor
         nextButton.layer.shadowRadius = 4.0
-        nextButton.layer.shadowOpacity = 0.3
-        nextButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        nextButton.layer.shadowOpacity = 0.6
+        nextButton.layer.shadowOffset = CGSize(width: -2, height: 2)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.backgroundColor = UIColor(named: "navBarColor")
+            navigationController?.navigationBar.standardAppearance = navBarAppearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,8 +81,10 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath) as! CartTableViewCell
         cell.sizeLabel.text = cartItems[indexPath.row]?.size.rawValue
-        cell.quantityLabel.text = cartItems[indexPath.row]?.quantity.description
+        cell.quantity = cartItems[indexPath.row]?.quantity ?? 1
         cell.bgImage.image = cartItems[indexPath.row]?.image
+        cell.output = self
+        cell.index = indexPath.row
         return cell
     }
     
@@ -78,5 +95,12 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         let vc = OrderViewController.instantiate("Main", OrderViewController.self)
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension CartViewController: CartTableCellOutput{
+    func updateItem(count: Int, at index: Int) {
+        cartItems[index]?.update(count)
+        totalLabel.text = "К оплате: \(cartRepository.calculateTotalAmount())"
     }
 }

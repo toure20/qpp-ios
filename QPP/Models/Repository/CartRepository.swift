@@ -19,6 +19,12 @@ protocol CartRepositoryProtocol {
     func getItems() -> [Int: PhotoCart]
     func addItems(_ cartItem: PhotoCart, at index: Int)
     func makeOrder(user: User, shipping_method: ShippingOption, payment_method: PaymentOption)
+    func calculateTotalAmount() -> String
+    func clearItems()
+    
+    var userName: String? { get }
+    var shipingAddres: String? { get }
+    var phoneNumber: String? { get }
 }
 
 protocol CartRepositoryOutput: class {
@@ -30,9 +36,9 @@ class CartRepository: CartRepositoryProtocol {
     weak var output: CartRepositoryOutput?
     private var shippingOption: ShippingOption?
     
-    private var userName: String?
-    private var shipingAddres: String?
-    private var phoneNumber: String?
+    var userName: String?
+    var shipingAddres: String?
+    var phoneNumber: String?
     private var cartItems: [Int: PhotoCart] = [:]
     private var totalAmount: String?
     
@@ -59,6 +65,25 @@ class CartRepository: CartRepositoryProtocol {
     
     func setTotalAmount(_ string: String?) {
         self.totalAmount = string
+    }
+    
+    func clearItems() {
+        self.cartItems.removeAll()
+        NotificationCenter.default
+            .post(name: NSNotification.Name.init("cartUpdate"), object: nil)
+    }
+    
+    func calculateTotalAmount() -> String {
+        let container = cacheContainer.object(forKey: "CachedSizeAmount")
+        let amounts = container?.getPrices()
+        var totalAmount: Int = 0
+        var currency: String = "KZT"
+        for item in cartItems {
+            let model = amounts?.first(where: { $0.sizeId == item.value.size.id })
+            totalAmount += Int(model?.amount ?? 200.0) * item.value.quantity // by default 200 tg
+            currency = model?.currency ?? "KZT"
+        }
+        return "\(totalAmount) \(currency)"
     }
     
     // MARK: - Getters
@@ -96,6 +121,7 @@ class CartRepository: CartRepositoryProtocol {
             print(json)
             self?.output?.orderDidCreate()
             SVProgressHUD.showSuccess(withStatus: "Заказ успешно создан")
+            self?.clearItems()
         }) { json in
             print(json)
             SVProgressHUD.showError(withStatus: json["error"].string ??

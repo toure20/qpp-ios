@@ -30,7 +30,7 @@ struct APIManager {
                     let json = try! JSON(data: response.data)
                     //print(json)
                     SVProgressHUD.dismiss()
-                    if json["success"].bool == true {
+                    if json["success"].bool == true || !(json["data"].array?.isEmpty ?? true) {
                         success(json)
                     } else {
                         failure(json)

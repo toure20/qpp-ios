@@ -20,8 +20,11 @@ class MyOrdersViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         tableView.layer.cornerRadius = 12
         tableView.tableFooterView = UIView()
-        
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     static func instantiate() -> MyOrdersViewController {

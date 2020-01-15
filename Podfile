@@ -11,5 +11,6 @@ target 'QPP' do
   pod 'Gallery'
   pod 'Moya'
   pod 'SwiftyJSON'
+  pod 'SKPhotoBrowser'
   
 end

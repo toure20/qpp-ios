@@ -26,7 +26,7 @@ public struct OrderNetworkContext {
     
     func getPhotosData() -> [(index: Int, data: Data)] {
         return photos.compactMap({ (key, value) -> (index: Int, data: Data)? in
-            if let imgData = value.image?.jpegData(compressionQuality: 0.5) {
+            if let imgData = value.image?.jpegData(compressionQuality: 1.0) {
                 return (index: key, data: imgData)
             }
             return nil
@@ -46,7 +46,7 @@ public struct OrderNetworkContext {
             "price": price
         ]
         for (index, item) in photos {
-            params["photos[\(index)][size_id]"] = "\(index)" // item.size.id
+            params["photos[\(index)][size_id]"] = "\(item.size.id)" // item.size.id
             params["photos[\(index)][count]"] = "\(item.quantity)"
         }
         return params

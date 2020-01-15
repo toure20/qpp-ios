@@ -47,7 +47,7 @@ class PaymentOptionsController: UITableViewController, CartRepositoryOutput {
         super.viewDidLoad()
         
         setEmptyBackTitle()
-        self.title = "Оплата"
+        self.title = "Метод оплаты"
         configureUI()
         cartRepository.output = self
     }
@@ -59,26 +59,45 @@ class PaymentOptionsController: UITableViewController, CartRepositoryOutput {
         cashPayment.isHidden = isPay
         paymentButton.layer.cornerRadius = 5.0
         
-        totalLabel.text = "Итого: \(totalPrice) ₸"
+        totalLabel.text = "Итого: \(cartRepository.calculateTotalAmount())"
+    }
+    
+    func calculateAmount() {
+        
     }
     
     @IBAction func paymentButtonPressed(_ sender: UIButton) {
-        if let cachedObject: User = cache.object(forKey: "CachedProfileObject") {
+        /// Online payments
+        if isPay {
+            if let cachedObject: User = cache.object(forKey: "CachedProfileObject") {
+                /// Route to WebPayment screen
+                let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebPaymentController") as! WebPaymentController
+                self.navigationController?.pushViewController(vc, animated: true)
+                return
+            }
+        } else {
+            /// Create order with cash
+            guard let cachedObject: User = cache
+                .object(forKey: "CachedProfileObject") else { return }
             cartRepository.makeOrder(
                 user: cachedObject,
                 shipping_method: .withDelivery,
-                payment_method: .online
-            )
-        } else {
-            let vc = LoginController.instantiate()
-            self.present(vc, animated: true, completion: nil)
+                payment_method: .offline)
+            return
         }
+        let vc = LoginController.instantiate()
+        self.present(vc, animated: true, completion: nil)
+        
     }
     
     func orderDidCreate() {
+        let vc = self.navigationController?.viewControllers.first(where: { $0 is MainViewController }) as? MainViewController
+        
         self.navigationController?.popToRootViewController(animated: true)
+        vc?.orderDidCreate()
     }
 }
+
 // MARK: - TableView delegate/data source
 
 extension PaymentOptionsController {
